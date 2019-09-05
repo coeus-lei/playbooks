@@ -1,2 +1,2 @@
 Zabbix_Server_Hostname: "118.99.22.96"
-IP: "{{ ansible_ens33['ipv4']['address'] }}"
+IP: "{{ ansible_default_ipv4['address'] }}"
