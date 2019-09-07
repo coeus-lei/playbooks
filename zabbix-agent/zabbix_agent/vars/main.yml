@@ -1,2 +1,2 @@
-Zabbix_Server_Hostname: "118.99.22.96"
-IP: "{{ ansible_default_ipv4['address'] }}"
+Zabbix_Server_Hostname: "10.10.20.15"
+#IP: "{{ ansible_default_ipv4['address'] }}"
