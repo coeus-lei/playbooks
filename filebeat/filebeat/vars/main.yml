@@ -1,0 +1,3 @@
+Main_Version: "7.3"
+Min_Version: 1-
+Filebeat_Package: "https://artifacts.elastic.co/downloads/beats/filebeat/filebeat-{{ Main_Version }}.{{ Min_Version }}{{ ansible_machine }}.rpm"
