@@ -1,0 +1,12 @@
+filebeat.inputs:
+- type: "log"
+  enabled: true
+  paths:
+  - /var/log/nginx/access.log
+
+output.redis:
+  hosts: ["10.10.20.15:6379"]
+  db: 1
+  timeout: 5
+  key: "nginx-log"
+  datatype: "list"

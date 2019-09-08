@@ -1,0 +1,24 @@
+- name: Import Vars
+  include_vars: "{{ item }}"
+  with_items:
+   - "main.yml"
+
+- name: install filebeat
+  yum: 
+    name: "{{ Filebeat_Package }}"
+    state: present
+
+- name: install configuration file for filebeat
+  template: 
+    src: filebeat.yml.j2 
+    dest: /etc/filebeat/filebeat.yml
+  tags:
+  - conf
+  notify:
+  - restart filebeat
+
+- name: start filebeat service
+  service: 
+    enabled: true 
+    name: filebeat 
+    state: started 
