@@ -391,3 +391,6 @@ Include=/etc/zabbix/zabbix_agentd.d/*.conf
 # Mandatory: no
 # Default:
 # TLSPSKFile=
+UserParameter=httpd-prcss[*], ps -ef | grep -v root | grep httpd | wc -l
+UserParameter=num-http[*], ss -a | grep 'http' | uniq -c | wc -l
+UserParameter=num-https[*], ss -a | grep 'https' | uniq -c | wc -l
