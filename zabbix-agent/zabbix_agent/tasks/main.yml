@@ -13,5 +13,12 @@
   notify:
   - restart zabbix-agentd
 
+- name: copy file
+  synchronize: src=/etc/ansible/files/ dest=/etc/zabbix/zabbix_agentd.d/
+  tags:
+  - confsh
+  notify:
+  - restart zabbix-agentd
+
 - name: start zabbix_agentd service
   service: enabled=true name=zabbix-agent state=started
