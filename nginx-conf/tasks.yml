@@ -1,0 +1,11 @@
+- name: copy file
+  copy: src={{ item.src }} dest={{ nginx_basedir }}/{{ item.dest }} backup=yes owner=root group=root
+  with_items:
+    - { src: nginx/, dest: nginx/ }
+- name: check nginx configuration
+  command: nginx -t
+  register: info
+- name: show info
+  debug:
+    msg: "{{ info }}"
+  notify: reload nginx
