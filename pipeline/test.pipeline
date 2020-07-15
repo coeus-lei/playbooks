@@ -1,0 +1,34 @@
+pipeline {
+    agent any
+    parameters { 
+        choice(
+            choices: ['Nodes','node-ip-1','node-ip-2',.....],
+            name: 'PRO_NODES',
+            description: '请根据发布类型进行选择发布：\n1，输入-Nodes-发布-最新代码-到CDN\n2，输入-Node.IP-发布-最新代码-CDN节点 '
+            )
+    }
+    stages {
+        stage('发布确认') {
+            steps {
+                input "检查完成，是否发布?"
+            }
+        }                   
+        stage('代码推送') {
+            steps {
+            echo "code sync"
+                script {
+                    if (env.PRO_NODES == 'Nodes') {
+                        echo "All Nodes in CDN"
+                        echo "${Nodes}"
+                        } else {
+                        if (env.PRO_NODES != 'Nodes') {
+                            echo "${params.PRO_NODES}"
+                        } else { 
+                            echo "exit"
+                        }
+                        }
+                    }
+                    }
+                }
+            }
+    }
