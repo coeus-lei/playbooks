@@ -16,3 +16,5 @@ server {
     }
 	include ./vhosts/example/ssl_template.txt;
 }
+
+
