@@ -1,0 +1,2 @@
+src_php_codedir: /var/lib/jenkins/workspace/wayne-php-test/
+remote_php_codedir: /data/wwwroot/bi-front/
