@@ -1,0 +1,4 @@
+- name: exec npm install
+  shell: /usr/bin/npm install
+- name: exec npm run
+  shell: /usr/bin/npm run build:prod
