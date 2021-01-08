@@ -1,0 +1,19 @@
+- name: rsync php codedir
+  synchronize: 
+    src: "{{ path }}/dist" 
+    dest: "{{ remote_php_codedir }}"
+    rsync_opts:
+      - "--exclude=Jenkinsfile"
+      - "--exclude=.*/"
+    mode: push
+    delete: yes 
+    compress: yes
+#    owner: root 
+#    group: root
+#  with_items:
+#    - { src: dist/, dest: dist/}
+  ignore_errors: yes
+  register: result
+#  notify: 
+#     - exec npm install
+#     - exec npm run 
