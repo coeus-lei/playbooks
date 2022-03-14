@@ -1,0 +1,5 @@
+remote_lua_dir: /home/code/trunk/gameserver
+remote_lua_conf: /home/code/trunk/gameserver/config/svr/
+remote_lua_common: /home/code/trunk/common/
+remote_lua_proto: /home/code/trunk/gameserver/proto/
+remote_lua_pay: /home/code/trunk/gameserver/paysvrd
