@@ -1,0 +1,7 @@
+- hosts: "{{ hosts }}"
+  gather_facts: False
+  #become: yes
+  #become_method: su
+  #become_user: code
+  roles:
+    - roles
