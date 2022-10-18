@@ -1,0 +1,21 @@
+- name: "create remote version dir"
+  file: path=/data/{{ hosts }}/{{ project }}/{{ _version }} state=directory
+  tags:
+    - deploy
+
+- name: "rsync lua to remote version dir"
+  synchronize:
+    src: "{{ src_lua }}"
+    dest: "/data/{{ hosts }}/{{ project }}/{{ _version }}/"
+    rsync_opts:
+      - "--exclude=lua-common@tmp"
+      - "--exclude=lua-game-code@tmp"
+      - "--exclude=lua-game-conf@tmp"
+      - "--exclude=lua-pay@tmp"
+      - "--exclude=lua-proto@tmp"
+    use_ssh_args: yes
+    mode: push
+    compress: yes
+    delete: yes
+  tags:
+    - deploy
